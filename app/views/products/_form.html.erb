@@ -1,0 +1,13 @@
+<%= form_with(model: product, local: true) do |form| %> <% if product.errors.any? %>
+<%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:
+
+<% product.errors.full_messages.each do |message| %>
+<%= message %>
+<% end %>
+<% end %>
+<%= form.label :title %> <%= form.text_field :title, id: :product_title %>
+<%= form.label :description %> <%= form.text_area :description, id: :product_description, rows: 10, cols: 60 %>
+<%= form.label :image_url %> <%= form.text_field :image_url, id: :product_image_url %>
+<%= form.label :price %> <%= form.text_field :price, id: :product_price %>
+<%= form.submit %>
+<% end %>
